@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link } from "react-router-dom";
 import styled from "styled-components";
+import PropTypes from 'prop-types';
 
 export default class Product extends Component {
   render() {
@@ -40,6 +41,17 @@ export default class Product extends Component {
       </ProductWrapper>
     );
   }
+}
+
+//used to validate the data(to check if the data that is coming from API has correct type or not)
+Product.propTypes = {
+    product:PropTypes.shape({
+        id:PropTypes.number;
+        image: PropTypes.string,
+        title: PropTypes.string,
+        price: PropTypes.number,
+        inCart:PropTypes.bool
+    }).isRequired
 }
 
 const ProductWrapper = styled.div`
